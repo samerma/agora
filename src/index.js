@@ -2,10 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { Inventory } from '../src/stores/Inventory'
+import { Provider } from 'mobx-react';
 
+const inventory = new Inventory()
+const stores = { inventory }
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider {...stores}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
